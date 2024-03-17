@@ -1,0 +1,17 @@
+% Load the input image
+input_image = imread('input.jpg');
+
+% Set the zoom factor
+zoom_factor = 2; % Increase this value to zoom in further
+
+% Calculate the new dimensions
+new_width = round(size(input_image, 2) * zoom_factor);
+new_height = round(size(input_image, 1) * zoom_factor);
+
+% Resize the image using bilinear interpolation for smoother results
+zoomed_image = imresize(input_image, [new_height, new_width], 'bilinear');
+
+% Save the zoomed image
+imwrite(zoomed_image, 'zoomed_output.jpg');
+
+disp('Image zoomed successfully.');
